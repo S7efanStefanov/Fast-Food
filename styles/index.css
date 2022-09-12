@@ -1,0 +1,15 @@
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: rgb(225, 225, 225);
+    justify-content: center;
+    align-items: center;
+    
+}
+
+form{    
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}

@@ -1,0 +1,16 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 100vh;
+    background-color: white;
+}
+
+#loginError{
+    visibility: hidden;
+    color: rgb(164, 111, 111);
+}
+span>a{
+    color: rgb(147, 89, 234);
+}

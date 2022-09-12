@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/banner.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/register.css">
+    <link rel="stylesheet" href="./styles/menu.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="./assets/logo.jpeg" alt="Logo" id="logo">
+            <ul>
+                <li class="navigation-option">
+                    <a href="#menu">Menu</a>
+                </li>
+                <li class="navigation-option">
+                    <a href="#login">Login</a>
+                </li>
+                <li class="navigation-option">
+                    <a href="#register">Register</a>
+                </li>
+            </ul>
+
+            <a href="#cart" id="cart-option">
+                <span id="itemsInCart"></span>
+                <img src="./assets/cart.jpeg" alt="cart" id="cart-img">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section id="login">
+            <div class="login-container">
+                <form id="loginForm">
+                    <input required type="text" name="username" placeholder="Username">
+                    <input id="loginPass" required type="password" name="password" placeholder="Password">
+                    <button id="loginButton" type="submit">Login</button>
+                    <p id="loginError">Wrong credentials</p>
+                    <span>Dont have account?<a href="#register"> Register.</a></span>
+                </form>
+            </div>
+        </section>
+        <section id="register">
+            <div class="register-container">
+                <form id="registerForm">
+                    <input required type="text" name="username" placeholder="Username">
+                    <input id="loginPass" required type="password" name="password" placeholder="Password">
+                    <input id="confirmPass" required type="password" name="confirmPassword" placeholder="Confirm password">
+                    <button id="register-button" type="submit">Register</button>
+                    <p class="registerEror">Username not available!</p>
+                    <p class="registerEror">Passwords dont match</p>
+                </form>
+            </div>
+        </section>
+        <section id="menu">
+            <input type="text" id="search-filter">
+            <div class="menu-container">
+            </div>
+        </section>
+        <section id="cart"></section>
+        <section id="checkOut"></section>
+    </main>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/model/recepieManager.js"></script>
+    <script src="./assets/constants.js"></script>
+    <script src="./assets/js/router.js"></script>
+    <script src="./assets/js/render.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/controllers/loginController.js"></script>
+
+</body>
+
+</html>
