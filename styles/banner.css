@@ -24,6 +24,7 @@ ul{
     margin-right: 20px;
 }
 #cart-option{
+    visibility: hidden;
     align-self: flex-start;
     position: relative;
 }
@@ -31,6 +32,7 @@ ul{
     display: inline-block;
     width: 15px;
     height: 15px;
+    text-align: center;
     border-radius: 50%;
     position: absolute;
     background-color: red;
@@ -42,4 +44,7 @@ li{
 a{
     text-decoration: none;
     color: black;
+}
+#menu-option{
+    visibility: hidden;
 }

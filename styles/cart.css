@@ -1,0 +1,11 @@
+.itemInOrder{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 500px;
+    justify-content: space-between;
+    margin: 10px;
+}
+#cartItemsList{
+    display: flex;
+    flex-direction: column;
+}

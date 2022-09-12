@@ -1,8 +1,8 @@
-let painter = (function(){
-    class Render{
-        drawScreen(container, menuArray){
+let painter = (function () {
+    class Render {
+        drawMenuScreen(container, menuArray) {
             menuArray.forEach(recObj => {
-                // let piecesInCart = document.getElementById('itemsInCart')
+                let piecesInCart = document.getElementById('itemsInCart')
 
                 let card = document.createElement('div');
                 card.classList.add('productCard')
@@ -24,11 +24,38 @@ let painter = (function(){
                 let quantityInput = document.createElement('input');
                 let addBtn = document.createElement('button');
                 addBtn.innerText = 'Добави в количка';
-                // addBtn.addEventListener('click', function(){})
+                addBtn.addEventListener('click', function(){
+                    piecesInCart.parentNode.style.visibility = 'visible'
+                    shopingCart.addShopingItem(productName.textContent, quantityInput.value, productPrice.textContent)
+                    piecesInCart.textContent = Number(piecesInCart.textContent) + Number(quantityInput.value);
+                    quantityInput.value = ''
+                })
                 orderDetails.append(quantityInput, addBtn)
 
                 card.append(productImg, productName, productWeight, productCategory, productPrice, orderDetails)
                 container.append(card)
+            });
+        }
+        drawCartList(listOfItems, items) {
+            items.forEach(item => {
+                let listItem = document.createElement('li');
+                listItem.classList.add('itemInOrder')
+
+                let lisItemName = document.createElement('span');
+                lisItemName.textContent = item.name;
+                let lisItemprice = document.createElement('span');
+                lisItemprice.textContent = item.totalSum
+                let inputCount = document.createElement('input');
+                inputCount.value = item.pieces;
+                let removeItem = document.createElement('button');
+                removeItem.textContent = 'Remove'
+                removeItem.addEventListener('click', function(){
+                    shopingCart.removeShopingItem(item.name)
+                    //render it again
+
+                })
+                listItem.append(lisItemName,lisItemprice, inputCount, removeItem)
+                listOfItems.append(listItem)
             });
         }
     }

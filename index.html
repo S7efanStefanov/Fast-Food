@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/register.css">
     <link rel="stylesheet" href="./styles/menu.css">
+    <link rel="stylesheet" href="./styles/cart.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <nav>
             <img src="./assets/images/logo.jpeg" alt="Logo" id="logo">
             <ul>
-                <li class="navigation-option">
+                <li class="navigation-option" id="menu-option">
                     <a href="#menu">Menu</a>
                 </li>
                 <li class="navigation-option" id="login-option">
@@ -31,7 +32,7 @@
             </ul>
 
             <a href="#cart" id="cart-option">
-                <span id="itemsInCart"></span>
+                <span id="itemsInCart">0</span>
                 <img src="./assets/images/cart.jpeg" alt="cart" id="cart-img">
             </a>
         </nav>
@@ -65,7 +66,14 @@
             <div class="menu-container">
             </div>
         </section>
-        <section id="cart"></section>
+        <section id="cart">
+            <ul id="cartItemsList">
+            </ul>
+            <div id="orderdetails">
+                <span>Order Total: <span id="price-for-oreder"></span></span>
+                <button>Order</button>
+            </div>
+        </section>
         <section id="checkOut"></section>
     </main>
     <script src="./assets/js/data.js"></script>
@@ -73,6 +81,8 @@
     <script src="./assets/js/model/usersControler.js"></script>
     <script src="./assets/constants.js"></script>
     <script src="./assets/js/router.js"></script>
+    <script src="./assets/js/controllers/shopController.js"></script>
+    <script src="./assets/js/model/shopingCartManager.js"></script>
     <script src="./assets/js/render.js"></script>
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
