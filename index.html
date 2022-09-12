@@ -17,22 +17,22 @@
 <body>
     <header>
         <nav>
-            <img src="./assets/logo.jpeg" alt="Logo" id="logo">
+            <img src="./assets/images/logo.jpeg" alt="Logo" id="logo">
             <ul>
                 <li class="navigation-option">
                     <a href="#menu">Menu</a>
                 </li>
-                <li class="navigation-option">
+                <li class="navigation-option" id="login-option">
                     <a href="#login">Login</a>
                 </li>
-                <li class="navigation-option">
+                <li class="navigation-option" id="registrtion-option">
                     <a href="#register">Register</a>
                 </li>
             </ul>
 
             <a href="#cart" id="cart-option">
                 <span id="itemsInCart"></span>
-                <img src="./assets/cart.jpeg" alt="cart" id="cart-img">
+                <img src="./assets/images/cart.jpeg" alt="cart" id="cart-img">
             </a>
         </nav>
     </header>
@@ -51,10 +51,10 @@
         <section id="register">
             <div class="register-container">
                 <form id="registerForm">
-                    <input required type="text" name="username" placeholder="Username">
-                    <input id="loginPass" required type="password" name="password" placeholder="Password">
+                    <input required type="text" name="username" placeholder="Username" id="registerName">
+                    <input id="regPass" required type="password" name="password" placeholder="Password">
                     <input id="confirmPass" required type="password" name="confirmPassword" placeholder="Confirm password">
-                    <button id="register-button" type="submit">Register</button>
+                    <button id="register-button" type="submit" disabled>Register</button>
                     <p class="registerEror">Username not available!</p>
                     <p class="registerEror">Passwords dont match</p>
                 </form>
@@ -70,11 +70,13 @@
     </main>
     <script src="./assets/js/data.js"></script>
     <script src="./assets/js/model/recepieManager.js"></script>
+    <script src="./assets/js/model/usersControler.js"></script>
     <script src="./assets/constants.js"></script>
     <script src="./assets/js/router.js"></script>
     <script src="./assets/js/render.js"></script>
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
+    <script src="./assets/js/controllers/registerController.js"></script>
 
 </body>
 

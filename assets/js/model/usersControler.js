@@ -15,11 +15,11 @@ let userController = (function(){
     class UserManager{
         constructor(){
             this.users = [];   
-            this.activeUser;      
+            this.activeUser = {};      
         }
         validateLoginUser(nickName, pass){
             let user = this.users.filter(userIter => {
-                user.username === nickName && user.password === pass
+                return userIter.username === nickName && userIter.password === pass
             })[0]
             if (user){
                 this.activeUser = new ActiveUser(nickName, pass , user.history)
@@ -28,5 +28,15 @@ let userController = (function(){
                 return false
             }
         }
+        registerNewUser(nickName, pass){
+            if (this.users.some(user => user.username === nickName)){
+                return false
+            }else{
+                this.users.push(new User(nickName, pass))
+                location.hash = 'login'
+                return true
+            }
+        }
     }
+    return new UserManager()
 })()
