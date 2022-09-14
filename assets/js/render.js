@@ -27,7 +27,7 @@ let painter = (function () {
                 addBtn.addEventListener('click', function(){
                     piecesInCart.parentNode.style.visibility = 'visible'
                     shopingCart.addShopingItem(productName.textContent, quantityInput.value, productPrice.textContent)
-                    piecesInCart.textContent = Number(piecesInCart.textContent) + Number(quantityInput.value);
+                    shopingCart.getItemsInCart()
                     quantityInput.value = ''
                 })
                 orderDetails.append(quantityInput, addBtn)
