@@ -37,6 +37,7 @@ let painter = (function () {
             });
         }
         drawCartList(listOfItems, items) {
+            listOfItems.innerHTML = ''
             items.forEach(item => {
                 let listItem = document.createElement('li');
                 listItem.classList.add('itemInOrder')
@@ -51,8 +52,6 @@ let painter = (function () {
                 removeItem.textContent = 'Remove'
                 removeItem.addEventListener('click', function(){
                     shopingCart.removeShopingItem(item.name)
-                    //render it again
-
                 })
                 listItem.append(lisItemName,lisItemprice, inputCount, removeItem)
                 listOfItems.append(listItem)

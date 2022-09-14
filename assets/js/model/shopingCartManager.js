@@ -19,8 +19,17 @@ let shopingCart = (function () {
 
         }
         removeShopingItem(itemName) {
+            let listOfCartItems = document.getElementById('cartItemsList')
             let productToRemove = this.shoplist.filter(item => item.name === itemName)[0]
-            this.shoplist.splice(this.shoplist.indexOf(productToRemove))
+            this.shoplist.splice(this.shoplist.indexOf(productToRemove), 1)
+            painter.drawCartList(listOfCartItems, this.shoplist)
+            this.sumTotal()
+        }
+        sumTotal(){
+            let totalOrderPrice = document.getElementById('price-for-oreder')
+            let sumedPrice = 0;
+            this.shoplist.forEach(el => sumedPrice += Number(el.totalSum))
+            totalOrderPrice.textContent = sumedPrice.toFixed(2);
         }
     }
     return new ShopingCart()
