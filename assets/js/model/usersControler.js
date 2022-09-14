@@ -1,14 +1,9 @@
 let userController = (function(){
     class User{
-        constructor(username, password){
+        constructor(username, password, history){
             this.username = username;
             this.password = password;
-            this.history = {}
-        }
-    }
-    class ActiveUser extends User{
-        constructor(username, password, history){
-            super(username, password, history);
+            this.history = []
             
         }
     }
@@ -18,14 +13,20 @@ let userController = (function(){
             this.activeUser = {};      
         }
         validateLoginUser(nickName, pass){
-            let user = this.users.filter(userIter => {
-                return userIter.username === nickName && userIter.password === pass
-            })[0]
-            if (user){
-                this.activeUser = new ActiveUser(nickName, pass , user.history)
-                return true
-            }else{
+            let historytable = document.getElementById('history-table')
+
+            this.users.forEach(userIter => {
+                if(userIter.username === nickName && userIter.password === pass){
+                    this.activeUser = userIter
+                    this.activeUser.history.forEach(order => {
+                        painter.drawHistoryTable(historytable, order)
+                    })
+                }
+            })
+            if(!this.activeUser.username){
                 return false
+            }else{
+                return true
             }
         }
         registerNewUser(nickName, pass){
@@ -33,9 +34,17 @@ let userController = (function(){
                 return false
             }else{
                 this.users.push(new User(nickName, pass))
+                window.localStorage.setItem('users', JSON.stringify(this.users))
                 location.hash = 'login'
                 return true
             }
+        }
+        getUsersData() {
+           if(window.localStorage.getItem('users')){
+            this.users = JSON.parse(window.localStorage.getItem('users'))
+           }else{
+            window.localStorage.setItem('users', JSON.stringify([]))
+           }
         }
     }
     return new UserManager()

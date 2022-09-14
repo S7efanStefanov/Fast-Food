@@ -9,3 +9,17 @@
     display: flex;
     flex-direction: column;
 }
+#orderdetails{
+    margin-right:50px;
+    align-self: flex-end;
+}
+#orders-history{
+    background-color: rgb(150, 136, 136);
+}
+
+table{
+    width: 550px;
+}
+th, td{
+    border: 1px solid black;
+}

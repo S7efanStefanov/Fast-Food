@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/register.css">
     <link rel="stylesheet" href="./styles/menu.css">
     <link rel="stylesheet" href="./styles/cart.css">
+    <link rel="stylesheet" href="./styles/checkOut.css">
 </head>
 
 <body>
@@ -71,10 +72,32 @@
             </ul>
             <div id="orderdetails">
                 <span>Order Total: <span id="price-for-oreder"></span></span>
-                <button>Order</button>
+                <button id="order-button">Order</button>
+            </div>
+            <div id="orders-history">
+                <table id="history-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Purchases</th>
+                        <th>Price</th>
+                    </tr>
+                </table>
             </div>
         </section>
-        <section id="checkOut"></section>
+        <section id="checkOut">
+            <form id="delivery-details">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="tel" name="number" id="phone" name="phone"
+                        pattern="0[8-9][7-9][0-9]{7}"
+                        required value="">
+                <small>Format: 088-123-4567</small>
+                <textarea name="address" id="" cols="30" rows="3" placeholder="Adress..." required></textarea>
+                <button type="submit" id="deliver-btn" >Deliver</button>
+            </form>
+
+
+        </section>
     </main>
     <script src="./assets/js/data.js"></script>
     <script src="./assets/js/model/recepieManager.js"></script>
@@ -87,6 +110,7 @@
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
     <script src="./assets/js/controllers/registerController.js"></script>
+    <script src="./assets/js/controllers/finalyzeOrderController.js"></script>
 
 </body>
 

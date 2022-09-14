@@ -1,6 +1,7 @@
 (function () {
     window.addEventListener('load', router.hashChangeHandler);
     window.addEventListener('hashchange', router.hashChangeHandler);
+    userController.getUsersData()
     location.hash = 'login'
     let searchField = document.getElementById('search-filter')
     searchField.addEventListener('input', function (e) {

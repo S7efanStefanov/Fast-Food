@@ -4,7 +4,6 @@
     let registrationOption = document.getElementById('registrtion-option')
     let loginOption = document.getElementById('login-option')
     let menuOption = document.getElementById('menu-option')
-    // let cartOption = document.getElementById('cart-option')
     loginForm.addEventListener('submit', function (event) {
         event.preventDefault();
 

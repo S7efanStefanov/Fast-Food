@@ -56,6 +56,24 @@ let painter = (function () {
                 listItem.append(lisItemName,lisItemprice, inputCount, removeItem)
                 listOfItems.append(listItem)
             });
+            shopingCart.sumTotal()
+            shopingCart.getItemsInCart()
+        }
+        drawHistoryTable(table, history){
+            let tableRow = document.createElement('tr')
+
+            let dataDate = document.createElement('td')
+            dataDate.innerText = history.date
+            let dataAddress = document.createElement('td')
+            dataAddress.innerText = history.address
+            let dataPurchases = document.createElement('td')
+            dataPurchases.innerText = history.products.join(', ')
+            let dataPrice = document.createElement('td')
+            dataPrice.innerText = history.totalPrice
+
+            tableRow.append(dataDate, dataAddress, dataPurchases, dataPrice)
+            table.append(tableRow)
+
         }
     }
     return new Render
