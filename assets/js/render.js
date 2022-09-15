@@ -24,7 +24,11 @@ let painter = (function () {
                 let quantityInput = document.createElement('input');
                 let addBtn = document.createElement('button');
                 addBtn.innerText = 'Добави в количка';
-                addBtn.addEventListener('click', function(){
+                addBtn.addEventListener('click', function(e){
+                    if(!Number(quantityInput.value)){
+                        quantityInput.value = ''
+                        return
+                    }
                     piecesInCart.parentNode.style.visibility = 'visible'
                     shopingCart.addShopingItem(productName.textContent, quantityInput.value, productPrice.textContent)
                     shopingCart.getItemsInCart()
