@@ -5,6 +5,7 @@ let shopingCart = (function () {
             this.totalPrice = 0
         }
         addShopingItem(itemName, quantity, price) {
+            let orderBtn = document.getElementById('order-button')
             let productInCart = this.shoplist.filter(item => item.name === itemName)[0]
             if (productInCart) {
                 productInCart.pieces += Number(quantity)
@@ -16,12 +17,12 @@ let shopingCart = (function () {
                     totalSum: (Number(quantity) * Number(price)).toFixed(2)
                 })
             }
+            orderBtn.disabled = false
 
         }
         removeShopingItem(itemName) {
             let listOfCartItems = document.getElementById('cartItemsList')
             let productToRemove = this.shoplist.filter(item => item.name === itemName)[0]
-            let piecesInCart = document.getElementById('itemsInCart')
             this.shoplist.splice(this.shoplist.indexOf(productToRemove), 1)
             painter.drawCartList(listOfCartItems, this.shoplist)
             this.getItemsInCart()
