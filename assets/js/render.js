@@ -52,7 +52,18 @@ let painter = (function () {
                 let lisItemprice = document.createElement('span');
                 lisItemprice.textContent = item.totalSum
                 let inputCount = document.createElement('input');
+                inputCount.type = 'number'
                 inputCount.value = item.pieces;
+                inputCount.addEventListener('input', function(e){
+                    shopingCart.shoplist.forEach(itemInCart => {
+                        if (itemInCart.name === lisItemName.innerText){
+                            let price = itemInCart.totalSum / itemInCart.pieces;
+                            itemInCart.pieces = Number(inputCount.value)
+                            itemInCart.totalSum = (Number(inputCount.value) * Number(price)).toFixed(2)
+                            painter.drawCartList(listOfItems, shopingCart.shoplist)
+                        }
+                    })
+                })
                 let removeItem = document.createElement('button');
                 removeItem.textContent = 'Remove'
                 removeItem.addEventListener('click', function(){
